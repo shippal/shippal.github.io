@@ -19,22 +19,26 @@ Backoffice Demo
 
 
 ### Install react-ecommerce
-You can choose to install react-ecommerce without backend and database.
+You can choose to install react-ecommerce without backend and database or choose [node-ecommerce](https://github.com/yocompute/node-ecommerce) as your backend..
 
 #### Install react-ecommerce without backend:
-1. Git clone the project
+1. Git clone the project from [react-ecommerce](https://github.com/yocompute/react-ecommerce)
 2. CD to /react-ecommerce and run `npm install`
 3. Modify example.env to .env and change your jwt secret in .env, eg. JWT_SECRET=mysecret
 4. open your terminal and run `npm run`
 
 You should be able to see the login page in your browser with http://localhost:3000
 
-#### Install react-ecommerce with backend:
-1. Git clone the project
+#### Install react-ecommerce with node-ecommerce as backend:
+1. Git clone the project [react-ecommerce](https://github.com/yocompute/react-ecommerce)
 2. CD to /react-ecommerce and run `npm install`
 3. Modify example.env to .env
 4. Change the value of MOCK to false in .env 
-5. Change values in .env to connect to your database, and other values if you need. For example you want change change your jwt secret you change the value of JWT_SECRET=x as JWT_SECRET=mysecret
+5. Change values in .env as following (assume your backend run at port 8006): 
+```
+REACT_APP_LOCAL_DATA=false
+REACT_APP_API_URL = http://localhost:8006/api
+```
 6. Start your node-ecommerce backend (see 'Install node-ecommerce' section ). If you have your node-ecommerce backend install and running up, you can skip this step.  
 7. open your terminal and run `npm run`
  
@@ -45,27 +49,64 @@ You should be able to see the login page in your browser with http://localhost:3
 You can choose to install react-backoffice without backend and database.
 
 #### Install react-backoffice without backend:
-1. Git clone the project
+1. Git clone the project [react-backoffice](https://github.com/yocompute/react-backoffice)
 2. CD to /react-backoffice and run `npm install`
 3. Modify example.env to .env and change your jwt secret in .env, eg. JWT_SECRET=mysecret
 4. open your terminal and run `npm run`
 
 You should be able to see the login page in your browser with http://localhost:3000
 
-#### Install react-backoffice with backend:
-1. Git clone the project
+#### Install react-backoffice with node-ecommerce as backend:
+1. Git clone the project [react-backoffice](https://github.com/yocompute/react-backoffice)
 2. CD to /react-backoffice and run `npm install`
 3. Modify example.env to .env
-4. Change the value of MOCK to false in .env 
-5. Change values in .env to connect to your database, and other values if you need. For example you want change change your jwt secret you change the value of JWT_SECRET=x as JWT_SECRET=mysecret
+4. Change the values in .env as following (assume your backend run at port 8006): 
+```
+REACT_APP_API_URL = http://localhost:8006/api
+REACT_APP_MODE = remote
+```
 6. Start your node-commerce backend (see 'Install node-ecommerce' section ). If you have your node-ecommerce backend install and running up, you can skip this step.  
 7. open your terminal and run `npm run`
 
 You should be able to see the login page in your browser with http://localhost:3000
 
 
+### Install node-ecommerce as backend
+
+Though node-ecommerce only supports mongodb as database for now, we will support any other popular database like mysql, postgrad ...
+
+You need firstly create your mongodb,  then configure your mongodb authentication (config authentication is optional, but highly recommand when you host in production ), we skip the mongodb install here, you can refer [mongodb community server page](https://docs.mongodb.com/manual/administration/install-community/) for installation.
+
+1. Git clone the project from [node-ecommerce](https://github.com/yocompute/node-ecommerce)
+2. CD to /react-backoffice and run `npm install`
+3. Modify example.env to .env
+4. Change values in .env to connect to your database (replace the content in < >)
+
+If you don't have database authentication, you can set DB_AUTH=false as following:
+```
+MOCK=false
+DB_AUTH=false
+DB_NAME=<my database name>
+```
+
+If you have database authentication, you need to set DB_AUTH=true and set your credential as following:
+```
+MOCK=false
+DB_AUTH=true
+DB_NAME=<my database name>
+DB_USERNAME=<my database username>
+DB_PASSWORD=<my database password>
+DB_AUTH_SOURCE=<my authentication database name>
+```
+
+5. Change other values if you need. For example you want change change your jwt secret you change the value of JWT_SECRET=x as JWT_SECRET=mysecret
+6. open your terminal and run `npm run`
+
+You should be able to see 'API listening at http://localhost:8006' in your terminal
+
+
 ### Test
-Open a terminal, CD to /react-backoffice and `npm run test`
+Open a terminal, CD to any of above 3 project folder and run `npm run test`
 
 ### Support or Contact
 

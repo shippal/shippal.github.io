@@ -77,6 +77,10 @@ Though node-ecommerce only supports mongodb as database for now, we will support
 
 You need firstly create your mongodb,  then configure your mongodb authentication (config authentication is optional, but highly recommand when you host in production ), we skip the mongodb install here, you can refer [mongodb community server page](https://docs.mongodb.com/manual/administration/install-community/) for installation.
 
+For configure mongodb to use authentication, you can refer [start the mongod using a configuration file, add the security.authorization configuration file setting] (https://docs.mongodb.com/manual/tutorial/enable-authentication/) 
+
+For mongodb credential, you can refer [add mongodb user and credential](https://docs.mongodb.com/manual/tutorial/create-users/)
+
 1. Git clone the project from [node-ecommerce](https://github.com/yocompute/node-ecommerce)
 2. CD to /react-backoffice and run `npm install`
 3. Modify example.env to .env
